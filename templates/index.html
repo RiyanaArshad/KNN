@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            color: white;
+        }
+        h2 {
+            font-weight: 600;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: none;
+            font-size: 16px;
+            text-align: center;
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #27ae60;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #219150;
+            transform: scale(1.05);
+        }
+        .result {
+            margin-top: 20px;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .success {
+            background: rgba(46, 204, 113, 0.7);
+        }
+        .failure {
+            background: rgba(231, 76, 60, 0.7);
+        }
+        .error {
+            background: rgba(255, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📚 Student Performance Predictor</h2>
+        <p>Enter student details to predict performance level.</p>
+        <form action="/" method="post">
+            <input type="number" name="study_hours" placeholder="Study Hours per Week" required>
+            <input type="number" name="attendance" placeholder="Attendance Percentage" required>
+            <input type="number" name="test_score" placeholder="Test Score (0-100)" required>
+        
+            <label for="extracurricular">Extracurricular Activities:</label>
+            <select name="extracurricular" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        
+            <label for="internet_access">Internet Access at Home:</label>
+            <select name="internet_access" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        
+            <label for="parents_education">Parents' Education Level:</label>
+            <select name="parents_education" required>
+                <option value="High School">High School</option>
+                <option value="College">College</option>
+                <option value="Graduate">Graduate</option>
+            </select>
+        
+            <button type="submit">Predict 📊</button>
+        </form>
+        
+        {% if prediction %}
+            <div class="result {% if prediction == 'Good' %}success{% else %}failure{% endif %}">
+                <h3>Prediction: {{ prediction }}</h3>
+            </div>
+        {% endif %}
+
+        {% if error %}
+            <div class="result error">
+                <h3>{{ error }}</h3>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+Study_Hours,Attendance_Percentage,Previous_Test_Score,Extracurricular,Internet_Access,Parents_Education,Final_Result
+12,90,85,Yes,Yes,College,Pass
+5,60,45,No,No,High School,Fail
+8,80,78,Yes,Yes,Graduate,Pass
+2,50,40,No,No,High School,Fail
+10,85,80,No,Yes,College,Pass
+6,55,50,Yes,Yes,Graduate,Fail
+9,75,70,No,No,High School,Pass
+3,45,38,No,No,High School,Fail
+7,70,68,Yes,Yes,College,Pass
+4,65,42,No,No,High School,Fail
